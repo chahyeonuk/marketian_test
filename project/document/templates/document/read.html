@@ -1,0 +1,40 @@
+{% extends 'document/base.html'%}
+{% block title %}게시물 전체조회{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <th>순번</th>
+            <th>제목</th>
+            <th>본문</th>
+            <th>조회수</th>
+            <th>옵션</th>
+        </thead>
+        <tbody>
+        {% if board %}
+        {% for data in board%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td><a href="{{data.get_board_url}}/read/">{{data.title}}</a></td>
+            <td>{{data.text}}</td>
+            <td>{{data.boardhit}}</td>
+            <td>
+                <button type="button" id="update-button" onclick="location.href=`{{data.get_board_url}}/edit/`">수정</button>
+                <button type="button" id="delete-button" onclick="location.href=`{{data.get_board_url}}/delete/`">삭제</button>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td>게시물이 없습니다.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+    </table>
+{% endblock %}
+
+{% block script%}
+<script>
+
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'document/base.html'%}
+{% block title %}게시물 상세조회 {% endblock %}
+
+{% block content %}
+    <div id="post-area">
+        <article>
+            <header class="mb-4">
+                <h1>제목: {{board.title}}</h1>
+                <p>본문: {{board.text}}</p>
+                <p>조회수: {{board.boardhit}}</p>
+                <div>파일: {% if board.file %}<a href="{{board.file.url}}" role="button" download>{{board.get_filename}}</a>{%endif%}</div>
+                       
+            </header>
+        </article>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'document/base.html'%}
+{% block title %}게시물 수정 {% endblock %}
+
+{% block content %}
+    <div id="post-area">
+        <article>
+            <header class="mb-4">
+                <form id="form" method="POST" entype="multipart/form-data">
+                    {% csrf_token %}
+                    <table>
+                        {{ form }}
+                    </table>
+                    <button type="submit">Submit</button>
+                </form>
+            </header>
+        </article>
+        
+    </div>
+{% endblock %}

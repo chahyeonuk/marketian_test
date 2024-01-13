@@ -1,0 +1,14 @@
+{% extends 'document/base.html'%}
+{% block title %}게시물 생성 {% endblock %}
+
+{% block content %}
+    <div class="main-area">
+        <form id="form" method="POST" entype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

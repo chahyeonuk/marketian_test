@@ -1,0 +1,10 @@
+{% extends 'document/base.html'%}
+{% block title %}게시물 삭제 {% endblock %}
+
+{% block content %}
+    <form id="form" method="POST" action="{{board.get_board_url}}/delete/">
+        {% csrf_token %}
+        <div>{{board.title}} 게시물을 삭제하시겠습니까?</div>
+        <button type="submit" style="background-color: red;">삭제</button>
+    </form>
+{% endblock %}
